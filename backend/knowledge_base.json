@@ -20,5 +20,60 @@
     "source": "Mayo Clinic — Cuts and scrapes: First aid",
     "source_url": "https://www.mayoclinic.org/first-aid/first-aid-cuts/basics/art-20056711",
     "last_reviewed": "2026-08-30"
+  },
+  {
+    "id": "mild-headache",
+    "condition": "Mild (tension-type) headache",
+    "symptom_tags": ["headache", "tension headache", "head pain", "mild headache"],
+    "remedy": "Apply heat to the neck and shoulders, or ice to the forehead. Gently massage your temples, scalp, and neck. Simplify your schedule and take breaks; practice deep breathing or another relaxation technique daily. Keep a consistent sleep schedule. Avoid taking over-the-counter pain relievers more than 9 days a month, since overuse can itself worsen headaches over time.",
+    "diet": "Eat nutritious meals on a regular schedule and don't skip meals, especially breakfast. Drink plenty of water throughout the day, since dehydration is a common headache trigger. Limit caffeine to under about 400mg a day (roughly 4 cups of coffee) — both too much caffeine and sudden withdrawal from it can trigger headaches.",
+    "see_a_doctor_if": "You're needing pain relievers more than 9 days a month, headaches are becoming more frequent or severe, or a headache feels different from your usual pattern.",
+    "source": "Mayo Clinic — Tension-type headaches: Self-care measures for relief",
+    "source_url": "https://www.mayoclinic.org/diseases-conditions/tension-headache/in-depth/headaches/art-20047631",
+    "last_reviewed": "2026-08-30"
+  },
+  {
+    "id": "mild-indigestion",
+    "condition": "Mild indigestion",
+    "symptom_tags": ["indigestion", "upset stomach", "stomach ache", "bloating", "acidity", "heartburn"],
+    "remedy": "Eat smaller meals rather than large ones, and avoid rich or fatty foods, which require more stomach acid to digest. Try to finish eating at least a few hours before bedtime. Over-the-counter antacids can neutralize stomach acid and relieve occasional indigestion. If you regularly take NSAIDs like ibuprofen, be aware they can irritate the stomach — consider asking a doctor or pharmacist about alternatives.",
+    "diet": "Smaller, more frequent meals rather than large ones. Avoid rich, fatty, spicy, or very acidic foods when symptomatic. Small sips of water can help, though drinking large amounts at once can sometimes worsen symptoms.",
+    "see_a_doctor_if": "Symptoms happen frequently, antacids aren't helping or you need them often, you notice blood in your stool, have difficulty swallowing, persistent nausea or vomiting, or unexplained weight loss. Seek emergency care immediately if indigestion comes with chest discomfort, pain in the arm or jaw, shortness of breath, or sweating — these can be signs of a heart problem, not indigestion.",
+    "source": "Cleveland Clinic — Indigestion (Dyspepsia): What It Is, Symptoms & Causes",
+    "source_url": "https://my.clevelandclinic.org/health/symptoms/7316-indigestion-dyspepsia",
+    "last_reviewed": "2026-08-30"
+  },
+  {
+    "id": "insect-bites-skin-irritation",
+    "condition": "Minor insect bites, stings, and skin irritation",
+    "symptom_tags": ["insect bite", "bug bite", "bee sting", "mosquito bite", "itchy bite", "skin irritation", "minor rash", "itchy skin"],
+    "remedy": "If a stinger is visible, remove it. Clean the area gently with soap and water. Apply a cold compress (a cloth dampened with cold water, or an ice pack) for 10 to 20 minutes to reduce pain and swelling. Elevate the area if it's on an arm or leg. Calamine lotion, a baking soda paste, or hydrocortisone cream can ease itching when applied a few times a day. An oral antihistamine (like cetirizine or loratadine) can also help with itching, along with an over-the-counter pain reliever if needed.",
+    "diet": "No specific diet is needed for minor bites or skin irritation.",
+    "see_a_doctor_if": "Call for emergency help immediately for any signs of a severe allergic reaction: trouble breathing, swelling of the face or throat, widespread hives, dizziness, or nausea. Contact a doctor if swelling gets worse over time, the area shows signs of infection, or you start to feel unwell overall. Most minor bites and irritation improve within a day or two with home care.",
+    "source": "Mayo Clinic — Insect bites and stings: First aid",
+    "source_url": "https://www.mayoclinic.org/first-aid/first-aid-insect-bites/basics/art-20056593",
+    "last_reviewed": "2026-08-30"
+  },
+  {
+    "id": "seasonal-allergies",
+    "condition": "Mild seasonal allergy symptoms",
+    "symptom_tags": ["sneezing", "runny nose", "itchy eyes", "seasonal allergies", "hay fever", "nasal congestion", "watery eyes"],
+    "remedy": "Limit exposure by staying indoors on dry, windy, high-pollen days, and doing outdoor activities after rain when pollen counts are lower. Remove and wash clothes worn outside, and shower to rinse pollen from skin and hair. Use air conditioning and HEPA filters indoors rather than opening windows, and vacuum regularly with a HEPA-equipped vacuum. Saline nasal irrigation can help flush mucus and allergens from the nose. Over-the-counter oral antihistamines (cetirizine, fexofenadine, loratadine) reduce sneezing and itching, and corticosteroid nasal sprays can help with congestion.",
+    "diet": "No specific dietary changes are established for seasonal allergies; general hydration is sensible as with any illness.",
+    "see_a_doctor_if": "Symptoms aren't controlled by home measures and over-the-counter medication, or are significantly affecting daily life — a doctor can help identify specific triggers and discuss options like allergy shots or prescription treatments.",
+    "source": "Mayo Clinic — Seasonal allergies: Nip them in the bud",
+    "source_url": "https://www.mayoclinic.org/diseases-conditions/hay-fever/in-depth/seasonal-allergies/art-20048343",
+    "last_reviewed": "2026-08-30"
+  },
+  {
+    "id": "muscle-soreness",
+    "condition": "Muscle soreness (e.g. after exercise)",
+    "symptom_tags": ["muscle soreness", "sore muscles", "muscle ache", "post-workout soreness", "muscle pain", "stiff muscles"],
+    "remedy": "Light activity, like a short walk or gentle stretching, often reduces soreness the following day more than resting completely. Apply ice if there's acute pain along with swelling. Apply heat to improve blood flow to generally tight or tired muscles. Going forward, warm up properly before exercise and increase intensity gradually to reduce how sore you get.",
+    "diet": "No specific diet is required; staying hydrated supports normal muscle recovery.",
+    "see_a_doctor_if": "Discomfort worsens during activity rather than easing (rest for a few days rather than pushing through), pain is severe or sudden rather than a dull ache, or soreness doesn't improve after several days of rest.",
+    "source": "Mayo Clinic News Network — Mayo Clinic Minute: Managing muscle soreness",
+    "source_url": "https://newsnetwork.mayoclinic.org/discussion/mayo-clinic-minute-managing-muscle-soreness/",
+    "last_reviewed": "2026-08-30"
   }
 ]
