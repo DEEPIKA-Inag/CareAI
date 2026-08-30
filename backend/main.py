@@ -1,4 +1,5 @@
 from fastapi import FastAPI, UploadFile, File, Form
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from typing import List, Optional
 import json
@@ -45,8 +46,8 @@ class ImageFindings(BaseModel):
     red_flag_detected: bool = Field(description="True if the image shows something urgent: severe bleeding, a deep wound, signs of serious infection (spreading redness, pus, blackened tissue), or anything requiring immediate medical attention.")
     red_flag_reason: str = Field(description="Which visual red flag was matched, if any. Empty string otherwise.")
 
-@app.get("/")
-def root():
+@app.get("/health")
+def health():
     return {"status": "careAI backend is running"}
 
 def rule_based_red_flag_check(message: str):
@@ -191,3 +192,6 @@ async def chat_with_image(message: Optional[str] = Form(None), image: UploadFile
         "extracted_tags": all_tags,
         "disclaimer": DISCLAIMER,
     }
+
+FRONTEND_PATH = Path(__file__).parent.parent / "frontend"
+app.mount("/", StaticFiles(directory=FRONTEND_PATH, html=True), name="frontend")

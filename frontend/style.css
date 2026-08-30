@@ -1,0 +1,33 @@
+* { box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f4f7f6;
+  margin: 0;
+  color: #1c2b28;
+}
+header {
+  background: #1f6f6b;
+  color: white;
+  padding: 16px 20px;
+}
+header h1 { margin: 0 0 8px 0; font-size: 22px; }
+.disclaimer-banner {
+  background: rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13.5px;
+  margin: 0;
+}
+main { max-width: 640px; margin: 20px auto; padding: 0 16px; }
+#chat-window { min-height: 300px; margin-bottom: 16px; }
+.message { padding: 12px 14px; border-radius: 10px; margin-bottom: 10px; max-width: 85%; }
+.message.user { background: #dcebe9; margin-left: auto; }
+.message.assistant { background: white; border: 1px solid #d7ded2; }
+.message.emergency { background: #f5deda; border: 1px solid #b3392b; color: #7a2419; font-weight: 600; }
+.message .field-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: #4b5750; margin-top: 8px; font-weight: 600; }
+.message .disclaimer-line { margin-top: 10px; font-size: 12px; color: #6b756f; border-top: 1px solid #e7ece4; padding-top: 8px; }
+#chat-form { display: flex; flex-direction: column; gap: 8px; }
+textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #d7ded2; font-family: inherit; resize: vertical; }
+.controls { display: flex; justify-content: space-between; align-items: center; }
+button { background: #1f6f6b; color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+button:hover { background: #185856; }

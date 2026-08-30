@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>careAI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>careAI</h1>
+    <p class="disclaimer-banner">
+      This tool gives general self-care information for minor issues only — it is not a medical diagnosis.
+      If you're experiencing anything severe or urgent, please seek emergency care or see a doctor.
+    </p>
+  </header>
+
+  <main>
+    <div id="chat-window"></div>
+
+    <form id="chat-form">
+      <textarea id="message-input" placeholder="Describe your symptoms..." rows="2"></textarea>
+      <div class="controls">
+        <input type="file" id="image-input" accept="image/*">
+        <button type="submit">Send</button>
+      </div>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
