@@ -1,2 +1,7 @@
-In scope — the minor, non-emergency issues this assistant is actually allowed to give home-remedy/diet advice for. Think: common cold, mild headache, minor cuts and scrapes, mild indigestion, minor skin irritation or insect bites, muscle soreness, mild seasonal allergy symptoms — whatever set you want to start with. Keep the first version small; it's much easier to expand a narrow, well-handled list than to walk back a broad one.
-Red flags / exclusions — symptoms that must always trigger "please see a doctor / seek emergency care" instead of a remedy, no matter what. Think: chest pain, breathing difficulty, high fever in a young infant, severe bleeding, signs of stroke, suicidal thoughts, signs of a severe allergic reaction, anything in pregnancy, symptoms lasting beyond some duration you pick (e.g. "fever over 3 days"). This list is the single most important artifact in the whole project — it's what keeps the app safe even before any AI is involved.
+# Scope & Safety Boundaries
+
+## In scope (v1)
+Common cold, mild headache, minor cuts and scrapes, mild indigestion, minor skin irritation or insect bites, mild seasonal allergy symptoms, muscle soreness.
+
+## Always red-flag (v1)
+Chest pain, breathing difficulty, high fever in an infant under 3 months, severe bleeding, signs of stroke, suicidal thoughts, signs of a severe allergic reaction, anything symptom-related in pregnancy, fever lasting more than 3 days.

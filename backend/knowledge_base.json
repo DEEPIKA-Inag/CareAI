@@ -13,7 +13,7 @@
   {
     "id": "minor-cuts-scrapes",
     "condition": "Minor cuts and scrapes",
-    "symptom_tags": ["small cut", "scrape", "graze", "minor bleeding", "abrasion"],
+    "symptom_tags": ["small cut", "cut", "scrape", "graze", "minor bleeding", "bleeding", "abrasion", "wound"],
     "remedy": "Wash your hands first. Stop any bleeding by applying gentle pressure with a clean cloth or bandage. Clean the wound with cool running water; use tweezers cleaned with alcohol to remove any dirt or debris. Apply a thin layer of petroleum jelly or an antibiotic ointment to keep the area moist and help prevent infection, then cover with a sterile bandage. Change the dressing at least once a day or whenever it gets wet or dirty.",
     "diet": "No specific diet is needed for minor cuts; eating a generally balanced diet supports normal healing. No strong home-remedy diet claims apply here.",
     "see_a_doctor_if": "The wound is deep, won't stop bleeding after 10-15 minutes of pressure, has dirt embedded that won't rinse out, resulted from an animal or human bite, or shows signs of infection (increasing redness, warmth, swelling, pus, or fever).",
