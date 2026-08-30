@@ -1,3 +1,30 @@
+const consentModal = document.getElementById('consent-modal');
+const consentAccept = document.getElementById('consent-accept');
+
+function hasConsented() {
+  try {
+    return localStorage.getItem('careai_consent_given') === 'true';
+  } catch (e) {
+    return false;
+  }
+}
+
+function recordConsent() {
+  try {
+    localStorage.setItem('careai_consent_given', 'true');
+  } catch (e) {
+    // storage unavailable; modal will just show again next visit, which is a safe fallback
+  }
+}
+
+if (hasConsented()) {
+  consentModal.classList.add('hidden');
+}
+
+consentAccept.addEventListener('click', () => {
+  recordConsent();
+  consentModal.classList.add('hidden');
+});
 const form = document.getElementById('chat-form');
 const messageInput = document.getElementById('message-input');
 const imageInput = document.getElementById('image-input');
