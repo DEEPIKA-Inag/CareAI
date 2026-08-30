@@ -21,6 +21,11 @@ DISCLAIMER = (
     "If symptoms are severe, worsening, or don't match what's described here, please see a doctor."
 )
 
+UNAVAILABLE_MESSAGE = (
+    "I'm having trouble processing this right now. If your symptoms are severe or urgent, "
+    "please seek medical care rather than waiting on this tool; otherwise, try again shortly."
+)
+
 RED_FLAG_KEYWORDS = [
     "chest pain", "can't breathe", "cannot breathe", "difficulty breathing", "shortness of breath",
     "severe bleeding", "won't stop bleeding", "stroke", "face drooping", "slurred speech",
@@ -28,6 +33,7 @@ RED_FLAG_KEYWORDS = [
     "anaphylaxis", "throat swelling", "swelling of face",
     "pregnant", "pregnancy",
     "unconscious", "passed out", "confusion",
+    "blurry", "blurred vision", "vision changes", "vision loss", "double vision", "worst headache",
 ]
 
 class ChatRequest(BaseModel):
@@ -37,7 +43,7 @@ class SymptomExtraction(BaseModel):
     symptom_tags: List[str] = Field(description="Short, plain-language symptom tags, e.g. 'runny nose', 'small cut', 'chest pain'.")
     duration: str = Field(description="How long symptoms have lasted, in the user's words, or 'unknown'.")
     severity: str = Field(description="mild, moderate, severe, or unknown.")
-    red_flag_detected: bool = Field(description="True if the message mentions ANY of: chest pain, breathing difficulty, high fever in an infant under 3 months, severe bleeding, signs of stroke, suicidal thoughts, severe allergic reaction, pregnancy-related symptoms, fever over 3 days.")
+    red_flag_detected: bool = Field(description="True if the message mentions ANY of: chest pain, breathing difficulty, high fever in an infant under 3 months, severe bleeding, signs of stroke, suicidal thoughts, severe allergic reaction, pregnancy-related symptoms, fever over 3 days, or a sudden, severe, or persistent headache accompanied by vision changes, confusion, weakness, numbness, or slurred speech.")
     red_flag_reason: str = Field(description="Which red flag matched and why, if any. Empty string otherwise.")
 
 class ImageFindings(BaseModel):
@@ -57,30 +63,38 @@ def rule_based_red_flag_check(message: str):
             return kw
     return None
 
-def extract_symptoms(message: str) -> SymptomExtraction:
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=f"Extract structured symptom information from this message. Do not diagnose or add advice, only extract what is stated: {message}",
-        config={
-            "response_mime_type": "application/json",
-            "response_schema": SymptomExtraction,
-        }
-    )
-    return SymptomExtraction.model_validate_json(response.text)
+def extract_symptoms(message: str) -> Optional[SymptomExtraction]:
+    try:
+        response = client.models.generate_content(
+            model="gemini-3.6-flash",
+            contents=f"Extract structured symptom information from this message. Do not diagnose or add advice, only extract what is stated: {message}",
+            config={
+                "response_mime_type": "application/json",
+                "response_schema": SymptomExtraction,
+            }
+        )
+        return SymptomExtraction.model_validate_json(response.text)
+    except Exception as e:
+        print(f"[extract_symptoms] Gemini call failed: {e}")
+        return None
 
-def extract_image_findings(image_bytes: bytes, mime_type: str) -> ImageFindings:
-    response = client.models.generate_content(
-        model="gemini-3.6-flash",
-        contents=[
-            types.Part.from_bytes(data=image_bytes, mime_type=mime_type),
-            "Describe only what is visibly present in this image relevant to a minor health concern (skin, wound, rash, swelling, etc.). Do not diagnose or name a specific condition — describe observations only.",
-        ],
-        config={
-            "response_mime_type": "application/json",
-            "response_schema": ImageFindings,
-        }
-    )
-    return ImageFindings.model_validate_json(response.text)
+def extract_image_findings(image_bytes: bytes, mime_type: str) -> Optional[ImageFindings]:
+    try:
+        response = client.models.generate_content(
+            model="gemini-3.6-flash",
+            contents=[
+                types.Part.from_bytes(data=image_bytes, mime_type=mime_type),
+                "Describe only what is visibly present in this image relevant to a minor health concern (skin, wound, rash, swelling, etc.). Do not diagnose or name a specific condition — describe observations only.",
+            ],
+            config={
+                "response_mime_type": "application/json",
+                "response_schema": ImageFindings,
+            }
+        )
+        return ImageFindings.model_validate_json(response.text)
+    except Exception as e:
+        print(f"[extract_image_findings] Gemini call failed: {e}")
+        return None
 
 def match_knowledge_base(extracted_tags: list):
     best_entry, best_score = None, 0
@@ -109,6 +123,8 @@ def chat(request: ChatRequest):
         }
 
     extraction = extract_symptoms(request.message)
+    if extraction is None:
+        return {"reply": UNAVAILABLE_MESSAGE, "disclaimer": DISCLAIMER}
 
     if extraction.red_flag_detected:
         return {
@@ -152,6 +168,8 @@ async def chat_with_image(message: Optional[str] = Form(None), image: UploadFile
     image_bytes = await image.read()
     mime_type = image.content_type or "image/jpeg"
     findings = extract_image_findings(image_bytes, mime_type)
+    if findings is None:
+        return {"reply": UNAVAILABLE_MESSAGE, "disclaimer": DISCLAIMER}
 
     all_tags = list(findings.symptom_tags)
     red_flag = findings.red_flag_detected
@@ -159,10 +177,11 @@ async def chat_with_image(message: Optional[str] = Form(None), image: UploadFile
 
     if message:
         text_extraction = extract_symptoms(message)
-        all_tags += text_extraction.symptom_tags
-        if text_extraction.red_flag_detected:
-            red_flag = True
-            red_flag_reason = red_flag_reason or text_extraction.red_flag_reason
+        if text_extraction is not None:
+            all_tags += text_extraction.symptom_tags
+            if text_extraction.red_flag_detected:
+                red_flag = True
+                red_flag_reason = red_flag_reason or text_extraction.red_flag_reason
 
     if red_flag:
         return {
