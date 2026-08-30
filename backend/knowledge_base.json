@@ -1,0 +1,24 @@
+[
+  {
+    "id": "common-cold",
+    "condition": "Common cold",
+    "symptom_tags": ["runny nose", "sore throat", "cough", "congestion", "sneezing", "mild body ache"],
+    "remedy": "Rest and stay hydrated with water, juice, or clear broth. Gargle with warm salt water for a sore throat. Use a humidifier or sit in a steamy bathroom to ease congestion. A teaspoon of honey can help soothe a cough in adults and children over 1 year old (never give honey to infants under 12 months, due to botulism risk). Saline nasal drops or sprays can relieve stuffiness.",
+    "diet": "Warm fluids (soup, tea with honey and lemon) are soothing and help keep you hydrated. Avoid alcohol and caffeinated drinks, which can dehydrate you. There's no strong evidence that any specific food shortens a cold, but staying well-hydrated and eating normally as appetite allows is the general guidance.",
+    "see_a_doctor_if": "Fever above 101.3°F (38.5°C) lasting more than 3 days, symptoms lasting beyond 10 days without improving, or shortness of breath.",
+    "source": "Mayo Clinic — Cold remedies: What works, what doesn't, what can't hurt",
+    "source_url": "https://www.mayoclinic.org/diseases-conditions/common-cold/in-depth/cold-remedies/art-20046403",
+    "last_reviewed": "2026-08-30"
+  },
+  {
+    "id": "minor-cuts-scrapes",
+    "condition": "Minor cuts and scrapes",
+    "symptom_tags": ["small cut", "scrape", "graze", "minor bleeding", "abrasion"],
+    "remedy": "Wash your hands first. Stop any bleeding by applying gentle pressure with a clean cloth or bandage. Clean the wound with cool running water; use tweezers cleaned with alcohol to remove any dirt or debris. Apply a thin layer of petroleum jelly or an antibiotic ointment to keep the area moist and help prevent infection, then cover with a sterile bandage. Change the dressing at least once a day or whenever it gets wet or dirty.",
+    "diet": "No specific diet is needed for minor cuts; eating a generally balanced diet supports normal healing. No strong home-remedy diet claims apply here.",
+    "see_a_doctor_if": "The wound is deep, won't stop bleeding after 10-15 minutes of pressure, has dirt embedded that won't rinse out, resulted from an animal or human bite, or shows signs of infection (increasing redness, warmth, swelling, pus, or fever).",
+    "source": "Mayo Clinic — Cuts and scrapes: First aid",
+    "source_url": "https://www.mayoclinic.org/first-aid/first-aid-cuts/basics/art-20056711",
+    "last_reviewed": "2026-08-30"
+  }
+]
